@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+  <h2>
+    {{pageTitle}}
+  </h2>
+  <div class="row">
+    <table *ngIf="employees && employees.length" class="table table-responsive table-bordered">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Surname
+          </th>
+          <th>
+            Qualification
+          </th>
+          <th>Experience</th>
+          <th>
+           Languages
+          </th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>
+            {{employee.Name}}
+          </td>
+          <td>
+            {{employee.Surname}}
+          </td>
+          <td>
+            {{employee.Qualification}}
+          </td>
+          <td>
+            {{employee.Experience}}
+          </td>
+          <td>
+            <table *ngIf="employee.Languages && employee.Languages.length">
+              <thead>
+                <tr>
+                  <th>
+                    Language name
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let language of employee.Languages">
+                  <td>
+                    {{language}}
+                  </td>
+                </tr>
+              </tbody>
+
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <button (click)="GetData()" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</body>
+</html>
